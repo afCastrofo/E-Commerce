@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class BaseViewModel: ViewModel() {
+abstract class BaseViewModel: ViewModel() {
     
     val loading: LiveData<Boolean>
         get() = mLoading
@@ -20,6 +20,12 @@ class BaseViewModel: ViewModel() {
     val message: LiveData<Int>
         get() = mMessage
     private val mMessage = MutableLiveData<Int>()
+    
+    protected fun <T> LiveData<T>.postValue(data: T) {
+        if (this is MutableLiveData<T>) {
+            postValue(data)
+        }
+    }
     
     protected fun launch(
         @StringRes errorMessage: Int? = null,
