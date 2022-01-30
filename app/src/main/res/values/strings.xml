@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">Teste Framework</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -17,4 +11,9 @@
     <string name="verify_data">Verifique seus dados e tente novamente</string>
     <string name="verify_email">Verifique o endereço de email</string>
     <string name="verify_password">Verifique se a senha está correta</string>
+    <string name="error_updating_cart">Erro ao atualizar o carrinho</string>
+    <string name="products">Produtos</string>
+    <string name="add_to_cart">Adicionar ao carrinho</string>
+    <string name="items_in_cart">%1$d itens no carrinho</string>
+    <string name="search">Pesquisar por nome</string>
 </resources>

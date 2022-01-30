@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import androidx.core.view.isVisible
 import androidx.core.widget.doBeforeTextChanged
 import androidx.fragment.app.viewModels
+import br.com.afCastrofo.testeframework.BuildConfig
 import br.com.afCastrofo.testeframework.R
 import br.com.afCastrofo.testeframework.base.BaseFragment
 import br.com.afCastrofo.testeframework.databinding.FragmentLoginBinding
 import br.com.afCastrofo.testeframework.utils.alphaAnimation
-import br.com.afCastrofo.testeframework.utils.translateYAnimation
+import br.com.afCastrofo.testeframework.utils.navigate
+import br.com.afCastrofo.testeframework.utils.enterTranslateYAnimation
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +29,11 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>() {
                 binding.etEmail.text.toString(),
                 binding.etPassword.text.toString()
             )
+        }
+        
+        if(BuildConfig.DEBUG) {
+            binding.etEmail.setText("a@a.com")
+            binding.etPassword.setText("senha123")
         }
     }
     
@@ -55,7 +62,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>() {
         }
         
         viewModel.loginSuccessful.observe(this) {
-            //TODO navigate to next screen
+            navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
         }
     }
     
@@ -63,9 +70,9 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>() {
         binding.lavGroceries.alphaAnimation {
             binding.tvWelcome.alphaAnimation {
                 binding.tvInsertData.alphaAnimation {
-                    binding.tilEmail.translateYAnimation()
-                    binding.tilPassword.translateYAnimation(delayMultiplier = 2)
-                    binding.btLogin.translateYAnimation(delayMultiplier = 3)
+                    binding.tilEmail.enterTranslateYAnimation()
+                    binding.tilPassword.enterTranslateYAnimation(delayMultiplier = 2)
+                    binding.btLogin.enterTranslateYAnimation(delayMultiplier = 3)
                 }
             }
         }

@@ -5,11 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.afCastrofo.testeframework.utils.SingleLiveData
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 abstract class BaseViewModel: ViewModel() {
     
@@ -27,9 +27,15 @@ abstract class BaseViewModel: ViewModel() {
         }
     }
     
+    protected fun <T> LiveData<T>.call() {
+        if (this is SingleLiveData<T>) {
+            call()
+        }
+    }
+    
     protected fun launch(
         @StringRes errorMessage: Int? = null,
-        dispatcher: CoroutineDispatcher = Dispatchers.IO,
+        dispatcher: CoroutineDispatcher = Dispatchers.Main,
         block: suspend CoroutineScope.() -> Unit
     ) {
         mLoading.postValue(true)
