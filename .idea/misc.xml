@@ -5,9 +5,15 @@
       <map>
         <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/drawable/box_stroke.xml" value="2.271875" />
         <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/drawable/button_shape.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/drawable/card_gradient.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/drawable/rounded_left.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/drawable/rounded_top.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/layout/activity_main.xml" value="0.2667572463768116" />
+        <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/layout/adapter_products.xml" value="0.353713768115942" />
         <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/layout/content_main.xml" value="0.2667572463768116" />
+        <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/layout/fragment_home.xml" value="0.264945652173913" />
         <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/layout/fragment_login.xml" value="0.33" />
+        <entry key="..\:/Users/dedec/Documents/AndroidApps/TesteFramework/app/src/main/res/menu/menu_main.xml" value="0.3625" />
       </map>
     </option>
   </component>
