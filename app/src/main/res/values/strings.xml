@@ -16,4 +16,15 @@
     <string name="add_to_cart">Adicionar ao carrinho</string>
     <string name="items_in_cart">%1$d itens no carrinho</string>
     <string name="search">Pesquisar por nome</string>
+    <string name="cart">Carrinho</string>
+    <string name="total_value">Valor total:</string>
+    <string name="total_value_string">Valor total: %1$s</string>
+    <string name="total_items">Número de itens: %1$d</string>
+    <string name="items_number">Número de itens:</string>
+    <string name="finish_purchase">Finalizar compra</string>
+    <string name="remove_from_cart">Remover todos</string>
+    <string name="summary">Resumo</string>
+    <string name="finished_purchase">Compra finalizada</string>
+    <string name="error_generating_pdf">Erro ao gerar o PDF de recibo</string>
+    <string name="thanks_for_shopping">Obrigado por comprar conosco!</string>
 </resources>

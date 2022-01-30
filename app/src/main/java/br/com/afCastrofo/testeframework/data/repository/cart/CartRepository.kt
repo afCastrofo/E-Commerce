@@ -2,6 +2,7 @@ package br.com.afCastrofo.testeframework.data.repository.cart
 
 import br.com.afCastrofo.testeframework.data.local.PreferencesHelper
 import br.com.afCastrofo.testeframework.data.model.cart.Cart
+import br.com.afCastrofo.testeframework.data.model.cart.CartProduct
 import br.com.afCastrofo.testeframework.data.model.product.Product
 import javax.inject.Inject
 
@@ -20,8 +21,15 @@ class CartRepository @Inject constructor(
     fun updateCart(addedProduct: Product): Cart? {
         val cart = getCart()
         
-        cart?.let { it ->
-            it.products.add(addedProduct)
+        cart?.let {
+            val product = it.products.find { cartProduct -> cartProduct.product.id == addedProduct.id }
+            
+            if(product != null) {
+                product.quantity++
+            } else {
+                it.products.add(CartProduct(addedProduct, 1))
+            }
+            
             preferencesHelper.putCart(it)
         }
         
@@ -29,5 +37,25 @@ class CartRepository @Inject constructor(
     }
     
     fun getCart(): Cart? = preferencesHelper.getCart()
+    
+    fun getCartProductsGroupedById(): List<CartProduct>? {
+        return getCart()?.products
+    }
+    
+    fun removeItemFromCart(cartProduct: CartProduct) {
+        val cart = getCart()
+        cart?.let {
+            cart.products.removeIf { it.product.id == cartProduct.product.id }
+            preferencesHelper.putCart(cart)
+        }
+    }
+    
+    suspend fun clearCart() {
+        val cart = getCart()
+        cart?.let {
+            it.products.clear()
+            preferencesHelper.putCart(it)
+        }
+    }
     
 }

@@ -14,7 +14,7 @@ import androidx.navigation.navOptions
 import br.com.afCastrofo.testeframework.R
 
 enum class TransitionAnimation {
-    TRANSLATE_FROM_RIGHT, TRANSLATE_FROM_DOWN, TRANSLATE_FROM_LEFT, TRANSLATE_FROM_UP, NO_ANIMATION, FADE
+    TRANSLATE_FROM_RIGHT, TRANSLATE_FROM_DOWN
 }
 
 fun Fragment.navigateUp() {
@@ -69,30 +69,6 @@ private fun buildOptions(
                     exit = R.anim.translate_no_change
                     popEnter = R.anim.translate_no_change
                     popExit = R.anim.translate_slide_bottom_down
-                }
-                TransitionAnimation.TRANSLATE_FROM_LEFT -> {
-                    enter = R.anim.translate_right_enter
-                    exit = R.anim.translate_right_exit
-                    popEnter = R.anim.translate_left_enter
-                    popExit = R.anim.translate_left_exit
-                }
-                TransitionAnimation.TRANSLATE_FROM_UP -> {
-                    enter = R.anim.translate_slide_bottom_down
-                    exit = R.anim.translate_no_change
-                    popEnter = R.anim.translate_no_change
-                    popExit = R.anim.translate_slide_bottom_up
-                }
-                TransitionAnimation.NO_ANIMATION -> {
-                    enter = R.anim.translate_no_change
-                    exit = R.anim.translate_no_change
-                    popEnter = R.anim.translate_no_change
-                    popExit = R.anim.translate_no_change
-                }
-                TransitionAnimation.FADE -> {
-                    enter = R.anim.translate_fade_in
-                    exit = R.anim.translate_fade_out
-                    popEnter = R.anim.translate_fade_in
-                    popExit = R.anim.translate_fade_out
                 }
                 else -> {
                 }

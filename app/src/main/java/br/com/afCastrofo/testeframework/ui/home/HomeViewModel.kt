@@ -8,6 +8,7 @@ import br.com.afCastrofo.testeframework.data.model.cart.Cart
 import br.com.afCastrofo.testeframework.data.model.product.Product
 import br.com.afCastrofo.testeframework.data.repository.cart.CartRepository
 import br.com.afCastrofo.testeframework.data.repository.product.ProductsRepository
+import br.com.afCastrofo.testeframework.utils.SingleLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -20,6 +21,7 @@ class HomeViewModel @Inject constructor(
     val products: LiveData<List<Product>> = MutableLiveData()
     val cartUpdated: LiveData<Cart> = MutableLiveData()
     val setupCart: LiveData<Cart> = MutableLiveData()
+    val hideCart: LiveData<Unit> = SingleLiveData()
     
     private var mProducts: List<Product> = listOf()
 
@@ -37,6 +39,8 @@ class HomeViewModel @Inject constructor(
             cart?.let {
                 if(it.products.isNotEmpty()){
                     setupCart.postValue(it)
+                } else {
+                    hideCart.call()
                 }
             }
         }

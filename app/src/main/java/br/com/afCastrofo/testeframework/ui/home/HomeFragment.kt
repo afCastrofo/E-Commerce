@@ -3,6 +3,7 @@ package br.com.afCastrofo.testeframework.ui.home
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import androidx.activity.addCallback
+import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -11,9 +12,7 @@ import br.com.afCastrofo.testeframework.base.BaseFragment
 import br.com.afCastrofo.testeframework.data.model.cart.Cart
 import br.com.afCastrofo.testeframework.data.model.product.Product
 import br.com.afCastrofo.testeframework.databinding.FragmentHomeBinding
-import br.com.afCastrofo.testeframework.utils.convertToCurrency
-import br.com.afCastrofo.testeframework.utils.enterTranslateYAnimation
-import br.com.afCastrofo.testeframework.utils.hideKeyboard
+import br.com.afCastrofo.testeframework.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,6 +44,9 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
         
         viewModel.cartUpdated.observe(this) {
             updateCart(it)
+        }
+        viewModel.hideCart.observe(this) {
+            binding.clCart.isVisible = false
         }
     }
     
@@ -85,7 +87,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
         }
         
         binding.clCart.setOnClickListener {
-            //TODO open cart
+            navigate(HomeFragmentDirections.actionHomeFragmentToCartFragment(), animation = TransitionAnimation.TRANSLATE_FROM_DOWN)
         }
     }
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_marginHorizontal="20dp"
+    android:background="@drawable/card_gradient"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.AppCompatImageView android:id="@+id/ivProductImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="20dp"
+        tools:srcCompat="@drawable/ic_apple"
+        android:background="@drawable/rounded_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        tools:text="Maçã"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvProductPrice"
+        app:layout_constraintStart_toEndOf="@id/ivProductImage"/>
+
+    <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        tools:text="R$ 2,00"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/tvProductName"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvProductQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="x2"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvProductName"
+        app:layout_constraintStart_toStartOf="@id/tvProductName"/>
+
+    <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvRemoveFromCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/remove_from_cart"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_delete_white"
+        app:drawableTint="?attr/colorSecondary"
+        android:textColor="?attr/colorSecondary"
+        app:layout_constraintEnd_toEndOf="@id/tvProductPrice"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

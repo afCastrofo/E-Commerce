@@ -44,6 +44,7 @@ abstract class BaseViewModel: ViewModel() {
                 block.invoke(this)
                 mLoading.postValue(false)
             } catch (e: Exception) {
+                e.printStackTrace()
                 mLoading.postValue(false)
                 errorMessage?.let {
                     mMessage.postValue(it)
