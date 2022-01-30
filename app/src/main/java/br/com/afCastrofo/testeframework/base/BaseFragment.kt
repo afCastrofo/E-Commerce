@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import br.com.afCastrofo.testeframework.utils.navigateUp
 
 abstract class BaseFragment<VB: ViewBinding>: Fragment() {
     
@@ -32,6 +34,10 @@ abstract class BaseFragment<VB: ViewBinding>: Fragment() {
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        requireActivity().onBackPressedDispatcher.addCallback {
+            navigateUp()
+        }
         
         initBaseObservers()
         initViews()
